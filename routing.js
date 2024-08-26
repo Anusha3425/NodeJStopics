@@ -5,7 +5,7 @@
 // Method: GET, POST, PUT, DELETE
 // PATH: path on the server
 // Handler: handler function executed when route matches
-import express from 'express';
+const express=require('express')
 
 const app=express()
 
@@ -23,6 +23,10 @@ app.put('/user', (req, res)=>{
 
 app.delete('/user', (req, res)=>{
     res.send("Got Delete request")
+})
+
+app.get('/redirect',(req, res)=>{
+    res.redirect('https://www.google.com')
 })
 
 app.listen(5000, ()=>{

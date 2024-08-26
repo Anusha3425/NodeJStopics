@@ -6,9 +6,11 @@
 // 
 const http=require('http')
 http.createServer(function(req, res){
-    res.writeHead(200, {'Content-Type':'text/html'})
-    res.write("Hello, server is runnin on port 3000")
-    console.log("djskd")
+    // res.writeHead(200, {'Content-Type':'text/html'})
+    // res.write("Hello, server is runnin on port 3000")
+    const rs=createReadStream('./staticFolder/index.html')
+    res.writeHead(200,{'Content-Type': 'text/html'})
+    rs.pipe(res);
 }). listen(3000);
 
 // some of the core modules:
@@ -20,6 +22,7 @@ http.createServer(function(req, res){
 // Local Modules: other than extrnal and build in modules, we can build local modules.
 
 const calculator=require('./calculator.js');
+const { createReadStream } = require('fs');
 let x=2, y=1;
 
 console.log(calculator.add(x,y));
