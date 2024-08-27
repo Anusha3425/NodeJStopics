@@ -1,12 +1,12 @@
 // Load HTTP module
-import { createServer } from "http";
+let http = require('http');
 
 const hostname = "127.0.0.1";
 const port = 8000;
 
-const server = createServer(function (req, res) {
+const server = http.createServer(function (req, res) {
   res.writeHead(200, { "Content-Type": "text/plain" });
-  
+  res.write("Hello, server is runnin on port 8000 ")
   res.end("Hello World\n");
 });
 

@@ -1,4 +1,4 @@
-import {Book} from "../models/userdata.models.js";
+import {Book} from "../models/booksdata.models.js";
 
  export const getBook = async (req, res) => {
     const user=await Book.find();
