@@ -5,11 +5,11 @@ const bookSchema=new mongoose.Schema(
         bookname: {
             type: String,
             required:true,
+            unique: true
         },
         author:{
             type: String,
             required:[true, "Author name is required"],
-            unique:true
         },
         published_year:{
             type: Number,

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon firstApplication.js",
+    "start": "nodemon db.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
@@ -11,8 +11,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "crypto": "^1.0.1",
     "ejs": "^3.1.10",
     "joi": "^17.13.3",
+    "mongoose": "^8.5.4",
     "nodemon": "^3.1.4",
     "yup": "^1.4.0"
   }
