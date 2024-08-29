@@ -5,6 +5,7 @@ import BookRouter from "./routes/bookdata.js";
 import UserRouter from "./routes/user.js"
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { restrictToLoggedinUserOnly } from "./middleware/restrictLogin.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -27,6 +28,13 @@ app.get('/login', (req,res)=>{
     res.sendFile(__dirname+ '/login.html');
 })
 
+app.get('/home', (req, res)=>{
+    res.sendFile(__dirname+ "/home.html")
+})
+
+app.get('/upload', (req, res)=>{
+    res.sendFile(__dirname+"/upload.html")
+})
 
 app.listen(port, function () {
     console.log('Server is running on http://localhost:3000');
@@ -36,8 +44,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.use('/book', BookRouter)
+// app.use('/book', BookRouter)
 app.use('/user',  UserRouter)
+app.use('/upload', restrictToLoggedinUserOnly)
 connectDB();
 
 // Pagination example
